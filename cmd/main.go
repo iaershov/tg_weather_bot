@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
@@ -12,6 +13,8 @@ import (
 )
 
 func main() {
+	fmt.Println("Starting bot")
+
 	ctx := context.Background()
 
 	bot, err := tgbotapi.NewBotAPI(models.TelegramBotToken)

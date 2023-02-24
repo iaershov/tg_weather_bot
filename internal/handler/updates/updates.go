@@ -38,6 +38,8 @@ func (h *Handler) HandleMessages(ctx context.Context, updateCfg tgbotapi.UpdateC
 				continue
 			}
 
+			fmt.Printf("Handling message from user: %d\n", update.Message.From.ID)
+
 			command := update.Message.Command()
 			if len(command) != 0 {
 				msg := tgbotapi.NewMessage(update.Message.Chat.ID, "Напишите название города")
@@ -58,7 +60,6 @@ func (h *Handler) HandleMessages(ctx context.Context, updateCfg tgbotapi.UpdateC
 			answer := presenter.PresentCurrentWeather(weather)
 
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, answer)
-
 			_, err = h.bot.Send(msg)
 			if err != nil {
 				fmt.Println("failed to send message", err)
