@@ -12,6 +12,13 @@ import (
 	"tg_weather_bot/internal/models"
 )
 
+func getUpdateConfig() tgbotapi.UpdateConfig {
+	cfg := tgbotapi.NewUpdate(0)
+	cfg.Timeout = 5
+
+	return cfg
+}
+
 func main() {
 	fmt.Println("Starting bot")
 
